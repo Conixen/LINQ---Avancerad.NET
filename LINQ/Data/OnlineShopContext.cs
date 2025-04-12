@@ -34,7 +34,7 @@ namespace LINQ.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            SeedData(modelBuilder);
         }
         public void SeedData(ModelBuilder modelBuilder)
         {
@@ -50,7 +50,8 @@ namespace LINQ.Data
                 new Product { Id = 9, Name = "Yogamata", Description = "Halkfri yogamata", Price = 349, StockQuantity = 30, CategoryId = 4, SupplierId = 4 },
                 new Product { Id = 10, Name = "Bestsellerroman", Description = "Populär skönlitteratur roman", Price = 249, StockQuantity = 40, CategoryId = 5, SupplierId = 2 },
                 new Product { Id = 11, Name = "Gaming PC", Description = "Högprestanda dator för gaming", Price = 18999, StockQuantity = 5, CategoryId = 1, SupplierId = 6 },
-                new Product { Id = 12, Name = "Tablet 10", Description = "Surfplatta med Wifi", Price = 4299, StockQuantity = 9, CategoryId = 1, SupplierId = 2 },
+                new Product { Id = 12, Name = "Tablet", Description = " 10 tum" +
+                " Surfplatta med Wifi", Price = 4299, StockQuantity = 9, CategoryId = 1, SupplierId = 2 },
                 new Product { Id = 13, Name = "Bluetooth-hötalare", Description = "Portabel högtalare med 20h batteritid", Price = 899, StockQuantity = 22, CategoryId = 1, SupplierId = 6 },
                 new Product { Id = 14, Name = "Kaffebryggare", Description = "Programmerbar kaffebryggare", Price = 799, StockQuantity = 14, CategoryId = 2, SupplierId = 2 },
                 new Product { Id = 15, Name = "Träningströja", Description = "Funktionströja för träning", Price = 499, StockQuantity = 35, CategoryId = 3, SupplierId = 3 }

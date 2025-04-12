@@ -1,4 +1,5 @@
 ﻿using LINQ.Data;
+using LINQ.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
@@ -45,7 +46,20 @@ namespace LINQ
         {
             using (var context = new OnlineShopContext())
             {
+                var lessThen10 = context.Suppliers
+                    .Include(p => p.Products)
+                    .Where(p => p.Products.Any(s => s.StockQuantity < 10))
+                    .ToList();
 
+                foreach(var supplier in lessThen10)
+                {
+                    Console.WriteLine($"Leverantör {supplier.Name} ");
+                    foreach (var lessThen in supplier.Products.Where(s => s.StockQuantity < 10))
+                    {
+                        Console.WriteLine($"\tProdukt: {lessThen.Name}, Antal i lager: {lessThen.StockQuantity}");
+                    }
+                }
+                Console.ReadKey();
             }
         }
         //- [ ] Beräkna det totala ordervärdet för alla ordrar gjorda under den senaste månaden

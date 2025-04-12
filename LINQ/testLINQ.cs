@@ -63,11 +63,23 @@ namespace LINQ
             }
         }
         //- [ ] Beräkna det totala ordervärdet för alla ordrar gjorda under den senaste månaden
-        public static void AvgOrderValue()
+        public static void OrderValue()
         {
             using (var context = new OnlineShopContext())
             {
+                // var latestOrderValue = new context.Orders
+                
+                // DateTime aboutAMonthAgo = DateTime.Now.AddMonths(-1);
 
+                var fromDate = new DateTime(2025, 3, 1);
+                var toDate = new DateTime(2025, 3, 31);
+
+                var totalOrderValue = context.Orders
+                    .Where(o => o.OrderDate >= fromDate && o.OrderDate <= toDate)
+                    .Sum(o => o.TotalAmount);
+
+                Console.WriteLine($"Totalt ordervärde senaste månaden: {totalOrderValue} kr");
+                Console.ReadKey();
             }
         }
         //- [ ] Hitta de 3 mest sålda produkterna baserat på OrderDetail-data
@@ -75,9 +87,33 @@ namespace LINQ
         {
             using (var context = new OnlineShopContext())
             {
+                var topProducts = context.OrderDetails
+                    .GroupBy(od => od.Product)
+                    .Select(g => new
+                    {
+                        Product = g.Key,
+                        TotalQuantity = g.Sum(od => od.Quantity)
+                    })
+                    .OrderByDescending(p => p.TotalQuantity)
+                    .Take(3)
+                    .ToList();
 
+                if (topProducts.Any())
+                {
+                    Console.WriteLine("Topp 3 mest sålda produkter:");
+                    foreach (var item in topProducts)
+                    {
+                        Console.WriteLine($"- {item.Product.Name} | Sålda: {item.TotalQuantity} st");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Inga produkter har sålts ännu.");
+                }
+                Console.ReadKey();
             }
         }
+
         //- [ ] Lista alla kategorier och antalet produkter i varje kategori
         public static void CatagoriAndProducts()
         {

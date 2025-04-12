@@ -42,7 +42,7 @@ namespace LINQ.Data
                 new Product { Id = 1, Name = "iPhone 13 Pro", Description = "Smartphone med 128GB lagring",  Price = 11999,  StockQuantity = 15,  CategoryId = 1,  SupplierId = 1 },
                 new Product { Id = 2, Name = "Samsung TV 55", Description = "4K Smart TV med HDR", Price = 8999, StockQuantity = 8, CategoryId = 1, SupplierId = 5},
                 new Product { Id = 3, Name = "Sony WH-1000XM4", Description = "Trådlösa hörlurar med brusreducering", Price = 3499, StockQuantity = 7, CategoryId = 1, SupplierId =5},
-                new Product { Id = 4, Name = " MacBook Air", Description = "Laptop med M1-chip och 8GB RAM", Price = 12499, StockQuantity = 12, CategoryId = 1, SupplierId = 1 },
+                new Product { Id = 4, Name = "MacBook Air", Description = "Laptop med M1-chip och 8GB RAM", Price = 12499, StockQuantity = 12, CategoryId = 1, SupplierId = 1 },
                 new Product { Id = 5, Name = "Espressomaskin", Description = "Automatisk espressomaskin", Price = 4995, StockQuantity = 6, CategoryId = 2, SupplierId = 2 },
                 new Product { Id = 6, Name = "Matberedare", Description = "Multifunktionell köksmaskin", Price = 1299, StockQuantity = 20, CategoryId = 2, SupplierId = 2 },
                 new Product { Id = 7, Name = "Vinterjacka", Description = "Varm jacka för vinterbruk", Price = 1999, StockQuantity = 25, CategoryId = 3, SupplierId = 3 },

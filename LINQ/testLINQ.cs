@@ -69,7 +69,20 @@ namespace LINQ
         {
             using (var context = new OnlineShopContext())
             {
+                var catAndPro = context.Categories
+                    .Include(p => p.Products)
+                    .Select(p => new
+                    {
+                        CategoryName = p.Name,
+                        ProductAmount = p.Products.Count
+                    })
+                .ToList();
 
+                foreach (var item in catAndPro)
+                {
+                    Console.WriteLine($"{item.CategoryName}: {item.ProductAmount} produkter");
+                }
+                Console.ReadKey();
             }
         }
         //- [ ] Hämta alla ordrar med tillhörande kunduppgifter och orderdetaljer där totalbeloppet överstiger 1000 kr

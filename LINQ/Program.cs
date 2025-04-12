@@ -6,7 +6,7 @@
         {
 
             //- []  Hämta alla produkter i kategorin "Electronics" och sortera dem efter pris (högst först)
-            testLINQ.GetProductsByCategory();
+            //testLINQ.GetProductsByCategory();
 
             ////- [ ] Lista alla leverantörer som har produkter med ett lagersaldo under 10 enheter
             //testLINQ.SupplierSaldo();
@@ -18,7 +18,7 @@
             //testLINQ.MostSoldProduct();
 
             ////- [ ] Lista alla kategorier och antalet produkter i varje kategori
-            //testLINQ.CatagoriAndProducts();
+            testLINQ.CatagoriAndProducts();
 
             ////- [ ] Hämta alla ordrar med tillhörande kunduppgifter och orderdetaljer där totalbeloppet överstiger 1000 kr
             //testLINQ.OrderOver1K();

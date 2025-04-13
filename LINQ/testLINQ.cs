@@ -17,7 +17,7 @@ namespace LINQ
         public static void GetProductsByCategory()
         {
             Console.Clear();
-            Console.WriteLine("\nHämtar alla prdukter i Electronics kategorin");
+            Console.WriteLine("Hämtar alla prdukter i Electronics kategorin:\n ");
             using (var context = new OnlineShopContext())
             {
                 var allElectronics = context.Products
@@ -40,6 +40,7 @@ namespace LINQ
         public static void SupplierSaldo()
         {
             Console.Clear();
+            Console.WriteLine("Alla leverantörer med produkter med lagersaldo under 10:\n ");
             using (var context = new OnlineShopContext())
             {
                 var lessThen10 = context.Suppliers
@@ -64,6 +65,7 @@ namespace LINQ
         public static void OrderValue()
         {
             Console.Clear();
+            Console.WriteLine("Totala värdet under mars månad:");
             using (var context = new OnlineShopContext())
             {
                 // var latestOrderValue = new context.Orders
@@ -100,7 +102,7 @@ namespace LINQ
                 int numb = 1;
                 if (topProducts.Any())      // checks if list is not null
                 {
-                    Console.WriteLine("\nTopp 3 mest sålda produkter:");
+                    Console.WriteLine("\nTopp 3 mest sålda produkter:\n ");
                     foreach (var item in topProducts)
                     {
                         Console.WriteLine($"{numb}: {item.Product.Name} | Sålda: {item.TotalQuantity} st");
@@ -109,7 +111,7 @@ namespace LINQ
                 }
                 else
                 {
-                    Console.WriteLine("Inga produkter har sålts ännu.");
+                    Console.WriteLine("\nInga produkter har sålts ännu.");
                 }
             }
         }
@@ -117,6 +119,7 @@ namespace LINQ
         public static void CatagoriAndProducts()
         {
             Console.Clear();
+            Console.WriteLine("Antal produkter i varje kategori:");
             using (var context = new OnlineShopContext())
             {
                 var catAndPro = context.Categories

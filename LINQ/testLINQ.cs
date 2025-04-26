@@ -143,7 +143,7 @@ namespace LINQ
             Console.Clear();
             using (var context = new OnlineShopContext())
             {
-                var over1k = context.Orders
+                var over1k = context.Orders.Where(o => o.TotalAmount > 1000)    // specific filter for orders over 1000 k
                     //.Include(cdp => cdp.Product)
                     .Include(cdp => cdp.OrderDetails).ThenInclude(cdp => cdp.Product)       // include related data from customer and orderdetalies
                     .Include(cdp => cdp.Customer)                                           // thenInclude load product data for each orderdetail
@@ -167,6 +167,7 @@ namespace LINQ
 
             }
         }
+        //Du behöver se över den sista frågan, nu hämtar den alla ordrar och inte bara de som har ett ordervärde över 1000:
     }
 }
 
